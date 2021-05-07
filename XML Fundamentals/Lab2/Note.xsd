@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<xs:schema
+        xmlns:xs="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="https://jets.iti.gov.eg/xml/note"
+        xmlns="https://jets.iti.gov.eg/xml/note"
+        elementFormDefault="qualified"
+>
+    <xs:element name="note">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="lastname" type="xs:string"/>
+                <xs:element name="age" type="xs:integer"/>
+                <xs:element name="dateborn" type="xs:date"/>
+                <xs:element name="color" type="xs:string" fixed="red"/>
+                
+                <xs:element name="test">
+                    <xs:simpleType>
+                        <
+                    </xs:simpleType>
+                </xs:element>
+                
+            </xs:sequence>
+        </xs:complexType>
+        
+        <xs:simpleType>
+            <xs:restriction>
+                <
+            </xs:restriction>
+        </xs:simpleType>
+        
+    </xs:element>
+</xs:schema>

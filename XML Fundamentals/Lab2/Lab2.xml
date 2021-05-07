@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<note
+        xmlns="https://jets.iti.gov.eg/xml/note"
+        xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation = "https://jets.iti.gov.eg/xml/note Note.xsd"
+>
+    <lastname>Ahmed</lastname>
+    <age>24</age>
+    <dateborn>1997-02-25</dateborn>
+    <color>red</color>
+
+</note>

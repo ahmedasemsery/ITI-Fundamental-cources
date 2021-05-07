@@ -1,0 +1,17 @@
+libinfo:
+  location: Cairo, Egypt
+  description: Library for english software books
+  librarian: Ahmed Asem
+  books:
+    - title: Head First
+      ISBN: '120'
+      author: Kathy Sierra , Bert Bates
+      preface:
+      parts:
+        - title: Introduction to java
+          chapters:
+            - title: overview
+              summary: introducing java
+              sections:
+                - content:
+                    - paragraphs

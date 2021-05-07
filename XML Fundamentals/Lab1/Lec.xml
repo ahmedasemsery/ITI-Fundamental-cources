@@ -1,0 +1,35 @@
+
+<!-- version is a must although encoding is optional -->
+<?xml version = "1.0" encoding = "UTF-8"?>
+
+<!-- Only one root element -->
+<Note>
+	<!-- Self closing element -->
+	<p Name = "Asem" Age = 90 />
+	
+	<!-- nested tags ended respectively -->
+	<x> <y> hello </y> </x>
+	
+	<!-- This is not right -->
+	<x> <y> hello </x> </y>
+	
+	
+	<message>
+		
+	</message>
+	
+	<message> salary &lt; 1000 </message>
+	
+	<note date = "12/11/2007">
+		<to> Aya </to>
+		<to> Amin </to>
+		<to> Amira </to>
+	</note>
+
+	<![CDATA[
+		//C++ comment
+		if(this -> getX() < 5 && value[0] != 3)
+			cerr << this -> displayError();
+	]]>
+
+</Note>

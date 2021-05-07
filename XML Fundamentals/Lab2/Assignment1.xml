@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<WeekDay
+        xmlns="https://jets.iti.gov.eg/xml/note"
+        xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation = "https://jets.iti.gov.eg/xml/note Note1.xsd"
+>
+    <weekday>1</weekday>
+    <weekday>7</weekday>
+    <weekday>Sunday</weekday>
+    <weekday>Friday</weekday>
+    <weekday>Monday</weekday>
+    <weekday>5</weekday>
+</WeekDay>

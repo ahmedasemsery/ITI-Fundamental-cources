@@ -1,0 +1,10 @@
+<?xml version = "1.0" encoding="UTF-8"?>
+
+<asem:note
+        xmlns:asem = "https://jets.iti.gov.eg"
+        xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation = "https://jets.iti.gov.eg Note.xsd"
+>
+    <asem:jeans>32</asem:jeans>
+    <asem:jeans>small</asem:jeans>
+</asem:note>

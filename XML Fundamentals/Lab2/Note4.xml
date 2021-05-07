@@ -1,0 +1,12 @@
+<BookStore
+        xmlns="https://jets.iti.gov.eg/xml/note"
+        xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation = "https://jets.iti.gov.eg/xml/note Note1.xsd"
+>
+  <Book category="fiction" InStock="false">
+    <Title>string</Title>
+
+    <Author>string</Author>
+    cum
+  </Book>
+</BookStore>

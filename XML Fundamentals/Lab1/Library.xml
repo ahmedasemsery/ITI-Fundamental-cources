@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding = "UTF-8" standalone = "no"?>
+
+<!DOCTYPE library SYSTEM "Library.dtd">
+
+<library>
+    <libinfo>
+        <location>
+            Cairo, Egypt
+        </location>
+        <description>
+            Library for english software books
+        </description>
+        <librarian id = "123500" name = "Ahmed Asem" gender = "male">
+            <age> 25 </age>
+            <phoneNumber> 0 100 000 0000 </phoneNumber>
+            <residentLocation> Minufia </residentLocation>
+            <status> Single </status>
+
+        </librarian>
+
+        <books>
+
+            <book id="101">
+                <author> Kathy Sierra , Bert Bates </author>
+                <writer> &writer; </writer>
+                <ISBN> </ISBN>
+                <title lang = "en"> Head First </title>
+                <preface> </preface>
+                <parts>
+                    <part1 p = "part1">
+                        <tilte> Introduction to java </tilte>
+                        <chapters>
+                            <chapter1>
+                                <title> overview </title>
+                                <summary> introducing java </summary>
+                                <sections>
+                                    <section1>
+                                        <pragraphs>
+                                            <pragraph1>
+
+                                            </pragraph1>
+                                        </pragraphs>
+                                    </section1>
+                                </sections>
+                            </chapter1>
+
+                            <![CDATA[
+                                if(i < 5)
+                                    System.out.println("Greater");
+                            ]]>
+                        </chapters>
+                    </part1>
+                </parts>
+                <category> &CS; </category>
+                <price>44.95</price>
+                <publish_date>2000</publish_date>
+                <description>
+                    it has a very “user-friendly interface”:
+                    you’ll get engaged from the first page till you finish it.
+                </description>
+            </book>
+
+            <book id="102">
+                <author> Barry Burd, PhD </author>
+                <writer> &writer; </writer>
+                <title lang = "en"> lang = "en"> Beginning Programming with Java For Dummies </title>
+                <preface> </preface>
+                <parts>
+                    <part1 p = "part1">
+                        <tilte> Introduction to java </tilte>
+                        <chapters>
+                            <chapter1>
+                                <title> overview </title>
+                                <summary> introducing java </summary>
+                                <sections>
+                                    <section1>
+                                        <pragraphs>
+                                            <pragraph1>
+
+                                            </pragraph1>
+                                        </pragraphs>
+                                    </section1>
+                                </sections>
+                            </chapter1>
+                        </chapters>
+                    </part1>
+                </parts>
+                <category> &CS; </category>
+                <price>100.50</price>
+                <publish_date>2004</publish_date>
+                <description>
+                    very simple examples and lots of “how-tos”
+                    if you have no idea of programming concepts.
+                </description>
+            </book>
+        </books>
+    </libinfo>
+</library>

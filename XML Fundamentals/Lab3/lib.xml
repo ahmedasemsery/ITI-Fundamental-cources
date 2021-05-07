@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<library
+        xmlns="https://jets.iti.gov.eg/xml/note"
+        xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation = "https://jets.iti.gov.eg/xml/note Note2.xsd"
+>
+
+    <libinfo>
+
+        <location>
+            Cairo, Egypt
+        </location>
+
+        <description>
+            Library for english software books
+        </description>
+
+        <librarian id = "123500" name = "Ahmed Asem" gender = "male"
+                   age = "25" phoneNumber = "01005425355" Status = "single"/>
+
+        <books>
+
+            <book id="100">
+                <author> Kathy Sierra , Bert Bates </author>
+                <ISBN> </ISBN>
+                <title lang = "en"> Head First </title>
+                <preface> </preface>
+                <category>ComputerScience</category>
+                <price>44.95</price>
+                <publish_date>2000-02-10</publish_date>
+                <description>
+                    it has a very “user-friendly interface”:
+                    you’ll get engaged from the first page till you finish it.
+                </description>
+
+                <parts>
+                    <part p="100">
+                        <title> Introduction to java </title>
+                        <chapters>
+                            <chapter>
+                                <title> overview </title>
+                                <summary> introducing java </summary>
+                                <sections>
+                                    <section>
+                                    </section>
+                                </sections>
+                            </chapter>
+                        </chapters>
+                    </part>
+                </parts>
+            </book>
+
+            <book id="102">
+                <author> Barry Burd, PhD </author>
+                <ISBN>blablabla</ISBN>
+                <title lang = "en"> lang = "en"> Beginning Programming with Java For Dummies </title>
+                <preface> </preface>
+                <category>ComputerScience</category>
+                <price>100.50</price>
+                <publish_date>2004-12-10</publish_date>
+                <description>
+                    very simple examples and lots of “how-tos”
+                    if you have no idea of programming concepts.
+                </description>
+                <parts>
+                    <part p="101">
+                        <title> Introduction to java </title>
+                        <chapters>
+                            <chapter>
+                                <title> overview </title>
+                                <summary> introducing java </summary>
+                                <sections>
+                                    <section>
+                                    </section>
+                                </sections>
+                            </chapter>
+                        </chapters>
+                    </part>
+                </parts>
+            </book>
+        </books>
+    </libinfo>
+</library>

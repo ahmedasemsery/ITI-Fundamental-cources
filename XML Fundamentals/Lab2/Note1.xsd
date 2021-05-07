@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<xs:schema
+        xmlns:xs="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="https://jets.iti.gov.eg/xml/note"
+        xmlns="https://jets.iti.gov.eg/xml/note"
+        elementFormDefault="qualified"
+>
+
+    <xs:element name="WeekDay" type="weekType"/>
+
+    <xs:complexType name="weekType">
+        <xs:sequence>
+            <xs:element name="weekday" maxOccurs="unbounded">
+                <xs:simpleType>
+                    <xs:union memberTypes="dayByNumber dayByString"/>
+                </xs:simpleType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!--
+    <xs:simpleType name="dayByNumber">
+        <xs:restriction base="xs:integer">
+            <xs:minInclusive value="1"/>
+            <xs:maxInclusive value="7"/>
+        </xs:restriction>
+    </xs:simpleType>
+    -->
+    <xs:simpleType name="dayByNumber">
+        <xs:restriction base="xs:integer">
+            <xs:pattern value="[0-7]"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!--
+    <xs:simpleType name="dayByString">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Saturday"/>
+            <xs:enumeration value="Sunday"/>
+            <xs:enumeration value="Monday"/>
+            <xs:enumeration value="Tuesday"/>
+            <xs:enumeration value="Wednesday"/>
+            <xs:enumeration value="Thursday"/>
+            <xs:enumeration value="Friday"/>
+        </xs:restriction>
+    </xs:simpleType>
+    -->
+    <xs:simpleType name="dayByString">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="Saturday|Sunday|Monday|Tuesday|Wednesday|Thursday|Friday"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

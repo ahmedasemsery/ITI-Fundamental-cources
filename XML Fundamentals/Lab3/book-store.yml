@@ -1,0 +1,30 @@
+---
+bookstore:
+  books:
+    - title: Everyday Italian
+      category: cooking
+      lang: en
+      author: Giada De Laurentiis
+      year: 2005
+      price: 30
+    - title: Harry Potter
+      category: children
+      available: false
+      year: 2005
+      price: 29.99
+    - title: XQuery Kick Start
+      author:
+        - James McGovern
+        - Per Bothner
+        - Kurt Cagle
+        - James Linn
+        - Vaidyanathan Nagarajan
+      year: 2003
+      price: 49.99
+    - category: web
+      lang: en
+      title: Learning XML
+      author: Erik T. Ray
+      year: 2003
+      price: 39.95
+...

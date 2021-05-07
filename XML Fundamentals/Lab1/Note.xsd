@@ -1,0 +1,47 @@
+<?xml version = "1.0" encoding="UTF-8"?>
+
+<xs:schema
+        xmlns:xs="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="https://jets.iti.gov.eg"
+        xmlns = "https://jets.iti.gov.eg"
+        elementFormDefault="qualified"
+>
+    <xs:element name="note" type = "NoteType"/>
+
+    <xs:complexType name = "NoteType">
+            <xs:sequence>
+
+            <!--    <xs:element name="test">
+                    <xs:complexType mixed="true">
+                        <xs:sequence>
+                            <xs:element name="plapla" type="xs:string"/>
+
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            -->
+                <xs:element name="jeans" maxOccurs="unbounded">
+                    <xs:simpleType>
+                        <xs:union memberTypes="sizeByNo sizeByString"/>
+
+                    </xs:simpleType>
+                </xs:element>
+            </xs:sequence>
+    </xs:complexType>
+
+    <xs:simpleType name="sizeByNo">
+        <xs:restriction base="xs:integer">
+            <xs:minInclusive value="22"/>
+            <xs:maxInclusive value="42"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="sizeByString">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="small"/>
+            <xs:enumeration value="medium"/>
+            <xs:enumeration value="large"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+</xs:schema>

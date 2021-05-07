@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<xs:schema
+        xmlns:xs="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="https://jets.iti.gov.eg/xml/note"
+        xmlns="https://jets.iti.gov.eg/xml/note"
+        elementFormDefault="qualified"
+>
+    <xs:element name="BookStore">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Book">
+                    <xs:complexType mixed="true">
+                        <xs:sequence maxOccurs="unbounded">
+                            <xs:element name="Title" type="xs:string"/>
+                            <xs:element name="Author" type="xs:string"/>
+                        </xs:sequence>
+                        <xs:attributeGroup ref="bookGroup"/>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:attributeGroup name="bookGroup">
+        <xs:attribute name="category" default="fiction">
+            <xs:simpleType>
+                <xs:restriction base="xs:string">
+                    <xs:pattern value="science|fiction"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="InStock" type="xs:boolean" default="false"/>
+    </xs:attributeGroup>
+</xs:schema>
