@@ -1,0 +1,312 @@
+#include <stdio.h>
+#include <conio.h>
+#include <stdlib.h>
+
+#define MAX 5
+
+typedef struct employee
+{
+	struct employee * tos;
+
+	int code;
+	char name[40];
+	double sal;
+	double bonus;
+	double netsal;
+
+	struct employee * ptr;
+}emp;
+
+emp * top;
+
+
+void addEmp(void);
+void updateEmp(void);
+void deleteEmp(void);
+void displayAll(void);
+
+
+int getChoice(void);
+
+int count = 0;
+
+
+
+void main(void)
+{
+	int choice;
+
+	top = NULL;
+
+	clrscr();
+
+	/*do
+	{
+		clrscr();
+		printf("Enter number of employees in DB >> ");
+		scanf("%d", &n);
+	}while(n <= 0);
+	*/
+
+	do
+	{
+		choice = getChoice();
+
+		switch(choice)
+		{
+			case 0:
+				break;
+
+			case 1:
+				addEmp();
+				clrscr();
+				break;
+
+			case 2:
+				updateEmp();
+				clrscr();
+				break;
+
+			case 3:
+				deleteEmp();
+				clrscr();
+				break;
+
+			case 4:
+				displayAll();
+				clrscr();
+				break;
+
+			default:
+				gotoxy(60, 17);
+				printf("Wrong choice!!");
+				break;
+		}
+
+	}while(choice != 0);
+}
+
+
+
+
+
+int getChoice(void)
+{
+	int choice;
+
+		gotoxy(20, 5);
+		printf("Menu choices");
+
+		gotoxy(20, 7);
+		printf("0: Exit");
+
+		gotoxy(20, 9);
+		printf("1: Add Employee");
+
+		gotoxy(20, 11);
+		printf("2: Update Employee");
+
+		gotoxy(20, 13);
+		printf("3: Delete Employee");
+
+		gotoxy(20, 15);
+		printf("4: Display All");
+
+		gotoxy(20, 17);
+		printf("Your choice>> ");
+		scanf("%d", &choice);
+
+	return choice;
+}
+
+
+
+void updateEmp(void)
+{
+	int code;
+	emp * ptr = top;
+
+	clrscr();
+
+	if(ptr == NULL)
+	{
+		printf("Database is empty (no employee to update) !!");
+		getch();
+		return;
+	}
+	else
+	{
+		printf("Enter employee code to update >> ");
+		scanf("%d", &code);
+
+		do
+		{
+			if(ptr -> code == code)
+			{
+				double t;
+
+				printf("Enter name>>");
+				flushall();
+				gets(ptr -> name);
+
+				printf("Enter salary>>");
+				flushall();
+				scanf("%lf", &t);
+				ptr -> sal = t;
+
+				printf("Enter bonus>>");
+				flushall();
+				scanf("%lf", &t);
+				ptr -> bonus = t;
+
+				printf("Code %d updated successfully \n", code);
+				printf("Press any key to return..");
+				getch();
+				return;
+			}
+			else
+			{
+				ptr = ptr -> ptr;
+			}
+		}while(ptr != NULL);
+
+		printf("Code %d not found!..", code);
+		getch();
+	}
+
+}
+
+
+
+void deleteEmp(void)
+{
+	int code;
+	emp * ptr = top;
+
+	clrscr();
+
+	if(ptr == NULL)
+	{
+		printf("Database is empty (no employee to delete) !!");
+		getch();
+		return;
+	}
+	else
+	{
+		printf("Enter employee code to delete >> ");
+		scanf("%d", &code);
+
+		do
+		{
+			if(ptr -> code == code)
+			{
+				if(ptr -> tos != NULL)
+				{
+					emp * temp = ptr -> tos;
+					temp -> ptr = ptr -> ptr;
+					free(ptr);
+					ptr = temp;
+				}
+				else
+				{
+					top = ptr -> ptr;
+					top -> tos = NULL;
+					free(ptr);
+				}
+
+				printf("code %d Deleted successfully.", code);
+				count--;
+				getch();
+				return;
+			}
+			else
+			{
+				ptr = ptr -> ptr;
+			}
+		}while(ptr != NULL);
+
+		printf("Code %d not found!", code);
+		getch();
+	}
+}
+
+
+
+void addEmp(void)
+{
+	double t;
+	emp * temp;
+
+	clrscr();
+
+
+
+	if(top == NULL)
+	{
+		top = (emp *) malloc(1 * sizeof(emp));
+		top -> ptr = NULL;
+		top -> tos = NULL;
+	}
+	else
+	{
+		temp = (emp *) malloc(1 * sizeof(emp));
+		temp -> ptr = top;
+		temp -> tos = NULL;
+		top -> tos = temp;
+		top = temp;
+	}
+
+	printf("Enter code>>");
+	flushall();
+	scanf("%d", &top -> code);
+
+	printf("Enter name>>");
+	flushall();
+	gets(top -> name);
+
+	printf("Enter salary>>");
+	flushall();
+	scanf("%lf", &t);
+	top -> sal = t;
+
+	printf("Enter bonus>>");
+	flushall();
+	scanf("%lf", &t);
+	top -> bonus = t;
+
+}
+
+
+
+void displayAll(void)
+{
+	emp * ptr;
+
+	clrscr();
+
+	ptr = top;
+	if(ptr == NULL)
+	{
+		printf("Database is empty (no employee to update) !!");
+		getch();
+		return;
+	}
+	else
+	{
+		int i;
+		for(i = 1 ; ptr != NULL ; i++)
+		{
+			printf("Data of employee #%d is:\n", i);
+
+			printf("Code: %d \n", ptr -> code);
+			printf("Name : %s \n", ptr -> name);
+			printf("Net salary = %lf \n\n", (ptr -> sal + ptr -> bonus));
+			printf("\n-------------------------------------\n");
+			ptr = ptr -> ptr;
+		}
+	}
+	printf("Press 'r' to return..");
+	while(getch() != 'r');
+}
+
+

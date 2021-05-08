@@ -1,0 +1,44 @@
+#include <stdio.h>
+#include <conio.h>
+
+void main(void)
+{
+	int arr[10];
+	int i;
+	int max;
+	int min;
+
+	clrscr();
+
+	printf("Enter 10 numbers\n");
+
+	for(i = 0 ; i < 10 ; i++)
+	{
+		printf("\n Enter number %d >> ", i);
+		scanf("%d", &arr[i]);
+	}
+	min = arr[0];
+	max = arr[0];
+	for(i = 0 ; i < 10 ; i++)
+	{
+		if(min > arr[i])
+		{
+			min = arr[i];
+		}
+	}
+
+	for(i = 0 ; i < 10 ; i++)
+	{
+		if(max < arr[i])
+		{
+			max = arr[i];
+		}
+	}
+
+	printf("Maximum number is: %d \n", max);
+	printf("Minimum number is: %d \n", min);
+	printf("Press any button to exit..");
+
+	getch();
+
+}

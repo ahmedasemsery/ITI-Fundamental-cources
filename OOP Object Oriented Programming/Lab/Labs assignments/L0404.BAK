@@ -1,0 +1,49 @@
+#include <stdio.h>
+#include <conio.h>
+#include <stdlib.h>
+#include <string.h>
+
+
+void copStr(char *, char *);
+
+
+void main(void)
+{
+	int len;
+	char * str1;
+	char * str2;
+
+	clrscr();
+
+	printf("Enter string to copy >>");
+	gets(str2);
+
+	len = (strlen(str2) + 1);
+
+	str1 = (char *) malloc(len);
+
+	copStr(str1, str2);
+
+	printf("Original string is : %s \n", str2);
+	printf("Copied string is : %s \n", str1);
+
+	free(str1);
+	printf("Press any button to exit..");
+	getch();
+}
+
+
+
+void copStr(char * des, char * src)
+{
+	int len;
+	int i;
+	len = strlen(src);
+
+	//*des = (char *) malloc( (len + 1) * sizeof(char));
+	for(i = 0 ; i < len ; i++)
+		des[i] = src[i];
+	des[i] = '\0';
+
+	printf("L = %d \n", len);
+}

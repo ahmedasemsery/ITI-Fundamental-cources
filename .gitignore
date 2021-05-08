@@ -14,9 +14,21 @@ buildNumber.properties
 # Intellij
 .idea/
 
-# Files
+# Docs
 *.pdf
+*.docx
+
+# Images
+*.png
 
 
-#Records
+# Records
 *.mp4
+*.wmv
+
+
+# Software
+*.exe
+
+# Folders
+BORLANDC/

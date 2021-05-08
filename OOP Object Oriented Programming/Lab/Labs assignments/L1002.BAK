@@ -1,0 +1,232 @@
+#include <iostream.h>
+#include <stdio.h>
+#include <conio.h>
+
+
+template <class T>
+
+class Stack
+{
+	private:
+		int top;
+		int size;
+
+		T * ptr;
+
+		static int counter;
+
+	public:
+		int isFull();
+		int isEmpty();
+
+		static int getCounter()
+		{
+			return counter;
+		}
+
+		Stack();
+
+		Stack(int n);
+
+		Stack(Stack <T> & s);
+
+		Stack <T>& operator = (const Stack <T> & s);
+
+		~Stack();
+
+		int push(T n);
+		int pop(T & n);
+
+		friend void viewContent(const Stack <T> & s);
+};
+
+
+
+/* Friend function implementation */
+template <class T>
+void viewContent(const Stack <T> & s)
+{
+	for(int i = 0 ; i < s.top ; i++)
+		cout << "Element no (" << i+1 << ") = " << s.ptr[i] << endl;
+
+	/***************************************************************/
+	//s.top = 0; // Cannot modify a const object
+}
+
+
+template <class T>
+int Stack <T> :: counter = 0;
+
+
+/* Constructors */
+template <class T>
+Stack <T> :: Stack() // Default constructor
+{
+	top = 0;
+	size = 10;
+	ptr = new T[size];
+
+	counter++;
+
+	cout << "This is the default constructor" << endl;
+
+}
+
+template <class T>
+Stack <T> :: Stack(int n)  // Constructor with one parameter
+{
+	top = 0;
+	size = n;
+	ptr = new T[size];
+
+	counter++;
+
+	cout << "This is a constructor with one parameter" << endl;
+}
+
+template <class T>
+Stack <T> :: ~Stack()      // Constructor with two parameters
+{
+	delete [] ptr;
+	size = 0;
+
+	counter--;
+
+	cout << "This is the destructor" << endl;
+}
+
+template <class T>
+Stack <T> :: Stack(Stack <T> & s)
+{
+	top = s.top;
+	size = s.size;
+
+	/***********************************************************/
+	//delete [] ptr; // Don't delete garbage pointer
+	// you may delete reserved location for another important data
+
+	ptr = new T[size];
+
+	for(int i = 0 ; i < size ; i++)
+		ptr[i] = s.ptr[i];
+
+	counter++;
+
+	cout << "This is a copy constructor" << endl;
+}
+
+
+/* Operators overloading */
+template <class T>
+Stack <T>& Stack <T> :: operator = (const Stack <T> & s)
+		{
+			top = s.top;
+			size = s.size;
+			for(int i = 0 ; i < size ; i++)
+				ptr[i] = s.ptr[i];
+
+			return * this;
+		}
+
+template <class T>
+int Stack <T> :: isFull()
+{
+	return(top == size);
+}
+
+template <class T>
+int Stack <T> :: isEmpty()
+{
+	return (top == 0);
+}
+
+template <class T>
+int Stack <T> :: push(T n)
+{
+	if(isFull())
+		return 0;
+	ptr[top] = n;
+	top++;
+
+	return 1;
+}
+
+template <class T>
+int Stack <T> :: pop(T & n)
+{
+	if(isEmpty())
+		return 0;
+
+	top--;
+
+	n = ptr[top];
+
+	return 1;
+}
+
+
+
+
+int main()
+{
+	clrscr();
+
+	int n;
+
+	Stack <int> s1(5);
+	Stack <char> s2(10);
+	Stack <char> s3(4);
+
+	cout << "No of Int stacks is :" << Stack <int> :: getCounter() << endl;
+	cout << "No of char stacks is :" << Stack <char> :: getCounter() << endl;
+	cout << "No of char stacks is :" << Stack <char> :: getCounter() << endl;
+
+
+	s1.push(10);
+	s1.push(3);
+	s1.push(2);
+	s1.pop(n);
+
+	cout << "1st integer: " << n << endl;
+	s1.pop(n);
+	cout << "2nd integer : " << n << endl;
+
+	viewContent(s1);
+
+/*	int x;
+
+	Stack s1(3);
+
+	Stack * s5 = new Stack[10];
+	Stack s6[5];
+
+	s1.push(20);
+	s1.push(30);
+	s1.push(40);
+	s1.push(50);
+
+	viewContent(s1);
+
+	Stack s2(s1);
+
+	viewContent(s2);
+
+	Stack s3(10);
+
+	s3 = s1;
+
+	viewContent(s3);
+*/
+
+/*	if(s1.pop(x))
+		cout << x << endl;
+
+	if(s1.pop(x))
+		cout << x << endl;
+*/
+	getch();
+
+//	delete [] s5;
+
+	return 1;
+}

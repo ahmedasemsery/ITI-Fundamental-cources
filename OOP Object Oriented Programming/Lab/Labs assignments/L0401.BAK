@@ -1,0 +1,36 @@
+#include <stdio.h>
+#include <conio.h>
+
+void swap(int *, int *);
+
+void main(void)
+{
+	int a, b;
+
+	clrscr();
+	printf("Swapping program: \n");
+	printf("Enter element 1 >> ");
+	scanf("%d", &a);
+
+	printf("Enter element 2 >> ");
+	scanf("%d", &b);
+
+	printf("Before swapping a = %d, b = %d \n", a, b);
+
+	swap(&a, &b);
+
+	printf("After swapping a = %d, b = %d \n", a, b);
+
+	printf("Press any button to exit..");
+	getch();
+
+}
+
+void swap(int * n1, int * n2)
+{
+	int temp;
+
+	temp = * n1;
+	* n1 = * n2;
+	* n2 = temp;
+}

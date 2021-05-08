@@ -1,0 +1,26 @@
+#include <stdio.h>
+#include <conio.h>
+#include <string.h>
+
+void main(void)
+{
+	char fName[10];
+	char lName[10];
+	char name[30];
+
+	clrscr();
+
+	printf("Enter First Name >>");
+	gets(fName);
+
+	printf("Enter Last Name >>");
+	gets(lName);
+
+	strcat(name, fName);
+	strcat(name, " ");
+	strcat(name, lName);
+
+	printf("Full name is: %s \n",name);
+	printf("Press any button to exit..");
+	getch();
+}

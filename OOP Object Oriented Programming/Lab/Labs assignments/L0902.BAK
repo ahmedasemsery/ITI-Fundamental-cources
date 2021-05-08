@@ -1,0 +1,161 @@
+#include <iostream.h>
+#include <stdio.h>
+#include <conio.h>
+
+
+class GeoShape
+{
+	protected:
+		float dim1, dim2;
+
+	public:
+		GeoShape()
+		{
+			dim1 = dim2 = 0;
+		}
+		GeoShape(float f)
+		{
+			dim1 = dim2 = f;
+		}
+		GeoShape(float f1 , float f2)
+		{
+			dim1 = f1;
+			dim2 = f2;
+		}
+		void setDim1(float f)
+		{
+			dim1 = f;
+		}
+		void setDim2(float f)
+		{
+			dim2 = f;
+		}
+		float getDim1()
+		{
+			return dim1;
+		}
+		float getDim2()
+		{
+			return dim2;
+		}
+		float getArea()
+		{
+			return 0.0;
+		}
+};
+
+
+class Rect : public GeoShape
+{
+	public:
+		Rect() : GeoShape(0.0)
+		{
+		}
+		Rect(float d1,  float d2) : GeoShape(d1, d2)
+		{
+		}
+		float getArea()
+		{
+			return dim1 * dim2;
+		}
+};
+
+
+
+class Square : protected Rect
+{
+	public:
+		Square() : Rect(0, 0)
+		{}
+		Square(float s) : Rect(s, s)
+		{}
+
+		void setDimention(float f)
+		{
+			dim1 = dim2 = f;
+		}
+		float getArea()
+		{
+			return dim1 * dim2;
+		}
+
+
+};
+
+
+
+
+class Circle : protected GeoShape
+{
+	public:
+		Circle() : GeoShape(0, 0)
+		{}
+		Circle(float f) : GeoShape(f, f)
+		{}
+
+		void setRadius(float f)
+		{
+			dim1 = dim2 = f;
+		}
+
+		float getArea()
+		{
+			return (3.14 * dim1 * dim2);
+		}
+};
+
+
+class Triangle : public GeoShape
+{
+	public:
+		Triangle() : GeoShape(0)
+		{}
+		Triangle(float f1, float f2) : GeoShape(f1, f2)
+		{}
+		float getArea()
+		{
+			return (dim1 * dim2);
+		}
+};
+
+
+
+int main()
+{
+	clrscr();
+	Circle c(7);
+
+	Triangle t(20, 10);
+
+	Rect r(2, 5);
+
+	Square s(5);
+
+	cout << "Circle area is " << c.getArea() << endl;
+	cout << "Triangle area is " << t.getArea() << endl;
+	cout << "Rectangle area is " << r.getArea() << endl;
+	cout << "Square area is " << s.getArea() << endl;
+
+
+	s.setDimention(4);
+	c.setRadius(3);
+	s.Rect :: setDim1(10);
+
+	t.setDim1(2);
+	t.setDim2(2);
+
+
+	cout << "Circle area is " << c.getArea() << endl;
+	cout << "Triangle area is " << t.getArea() << endl;
+	cout << "Rectangle area is " << r.getArea() << endl;
+	cout << "Square area is " << s.getArea() << endl;
+
+	getch();
+
+	return 0;
+}
+
+
+
+
+

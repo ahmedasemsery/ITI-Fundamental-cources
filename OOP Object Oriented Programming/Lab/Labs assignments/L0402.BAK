@@ -1,0 +1,64 @@
+#include <stdio.h>
+#include <conio.h>
+#include <stdlib.h>
+
+int * readArr(void);
+void printArr(int * arr);
+
+void main(void)
+{
+	int * a;
+	clrscr();
+
+	a = readArr();
+	printArr(a);
+
+	printf("Press any button to exit..");
+	getch();
+
+}
+
+
+
+
+int * readArr(void)
+{
+	int x;
+	int i;
+	int * ptr;
+
+	do
+	{
+		printf("Enter array size (positive) >> ");
+		scanf("%d", &x);
+	}while(x <= 0);
+
+	ptr = (int *) malloc(x * sizeof(int) + 1);
+
+	for(i = 0 ; i < x ; i++)
+	{
+		printf("Enter element no. %d >>", i);
+		scanf("%d", (ptr + i));
+	}
+	*(ptr + i) = '\0';
+
+	return ptr;
+}
+
+
+void printArr(int * arr)
+{
+	int i;
+	//int size = sizeof();
+
+	printf("Array values are : \n");
+
+	//for(i = 0 ; i < size ; i++)
+	while(arr[i] != '\0')
+	{
+		printf("Element %d is : %d \n", i , arr[i]);
+	}
+}
+
+
+

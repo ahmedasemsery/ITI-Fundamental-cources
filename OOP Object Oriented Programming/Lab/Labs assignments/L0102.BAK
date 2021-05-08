@@ -1,0 +1,18 @@
+#include <stdio.h>
+#include <conio.h>
+
+void main (void)
+{
+	char c;
+
+	clrscr();
+
+	printf("Enter character to print its ASCII>> ");
+
+	scanf("%c", &c);
+
+	printf("Hex %x", c);
+	printf("Dec %d", c);
+	printf("Oct %o", c);
+
+}
